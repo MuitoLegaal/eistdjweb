@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Staatliches");
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Background {
+  color: 'black'
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Title {
+  color: '#fff';
+  font-size: 40;
+  font-family: 'Staatliches';
+  text-align: 'center';
+  font-size: xx-large;
+}
+
+.Subtitle {
+    color: '#fff';
+    font-size: 30;
+    font-family: 'Staatliches';
+    text-align: 'center';
+    font-size: xx-large;
+  }
+
+.Text {
+  color: '#fff';
+  font-size: 20; 
+  padding-right: 30;
+  padding-left: 30;
+  text-align: 'center'
+}
+
+.Header {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* font-size: calc(10px + 2vmin); */
+  color: white;
+  border: black;
+
+}
+
+.Margin {
+  margin-top: 40;
+  margin-bottom: 40;
+}
+
+.Row {
+    margin-top: 10vh;
+}
+
+
+.Button { 
+ width: 250px;
+}
+
+
+.Input {
+  height: 30px;
+}
+
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+
+
+.Card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+}
+
+.CardHome{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+}
+
+.Background{
+  background-color: black;
+}
+
+.Champs{
+  font-size: medium;
+}
+
+.Box {
+  display: flex;
+  flex-direction: column;
+  border-width: 40;
+  padding: '8%';
+  border-radius: 10;
+  margin: '2%';
+  align-items:'stretch';
+  border-color: '#fff';
+  text-align: 'center';
+}
+
+.Countdown {
+  background-color: '#FF0060';
+  border-color: '#FF0060';
+  border-radius: 5;
+}
+
+.ShareEvent {
+  background-color: white;
+  color: #000000;
+  padding: 20;
+}
