@@ -18,11 +18,6 @@ function Eventcreation(props) {
 
   var response
 
-    useEffect(() => {
-
-    console.log("response", response)
-
-  }, [songListCreation])
 
   var handleEventCreation = async () => {
 
@@ -36,13 +31,9 @@ function Eventcreation(props) {
     
     if (response.result === true) {
           console.log('true')
-          // var ID = response.saveEvent.eventId
-          // props.onSettingEventName(eventName),
-          // props.onSettingPassword(eventPassword),
-          //props.onSettingIdEvent(eventID)//
-        
+
+          //redirection vers songlistcreation
           setSongListCreation(true)
-          
 
     } else {
           setErrorMessage(<Badge status="error" style={{color: 'white', backgroundColor:'#FF0060', fontSize:12, marginTop: '4vh'}}  value="Mot de passe trop court">Mot de passe trop court</Badge>)
@@ -52,13 +43,13 @@ function Eventcreation(props) {
 console.log('eventName', eventName)
 var nameForget;
 if (eventName === "" || eventPassword === "") {
-      // setErrorMessage(true)
       nameForget = <Badge status="error" style={{color: 'white', backgroundColor:'#FF0060', fontSize:12, marginTop: '4vh'}} value="Les deux champs sont obligatoires :) ">Les deux champs sont obligatoires</Badge>
 }
 
-
+ //redirection vers songlistcreation
 if (songListCreation){
   return <Redirect to="/Songlistcreation"></Redirect>}
+
 
 else 
 

@@ -185,7 +185,7 @@ router.post('/sign-in', async function (req, res, next) {
 
 })
 
-
+// route connexion invité
 router.post('/enregistrement', async function (req, res, next) {
 
   var error = []
@@ -252,6 +252,7 @@ router.post('/eventcreation', async function (req, res, next) {
 
     console.log("userID", userId);
 
+    //cloture les evenements passé isOpen: false
     if (userId) {
 
       console.log("userId.user", userId.user);
@@ -276,6 +277,7 @@ router.post('/eventcreation', async function (req, res, next) {
 
     console.log('saveevent', saveEvent)
 
+    //supprime les titres de la playlist
     if (saveEvent) {
       await playlistModel.deleteMany(
         {user: req.body.idUserFromFront}
@@ -306,6 +308,7 @@ router.post('/tourdevotecreation', async function (req, res, next) {
     { isOpen: true, user: req.body.idUserFromFront }
   )
 
+  //cloture les tours de vote passé
   await tourdevoteModel.updateMany(
     { event: isEventOpen._id },
     { isOpen: false }
@@ -323,7 +326,7 @@ router.post('/tourdevotecreation', async function (req, res, next) {
   var saveTourdevote = await newTourdevote.save();
 
 
-
+//supprime les titres de la playlist
   if (saveTourdevote) {
 
     console.log('result', saveTourdevote)
@@ -373,6 +376,7 @@ router.post('/tourdevotecreation', async function (req, res, next) {
 
 // });
 
+//initialise le timer du tour de vote à 10min
 router.post('/initTimer10', async function (req, res, next) {
 
   console.log('body', req.body.idUserFromFront)
@@ -430,7 +434,7 @@ router.post('/initTimer10', async function (req, res, next) {
 // });
 
 
-
+//permet d'envoyer au front le nombre de millisecondes avant la date d'échéance
 router.post('/afficheTimer', async function (req, res, next) {
 
   var isEventOpen = await eventModel.findOne(
@@ -466,7 +470,7 @@ router.post('/afficheTimer', async function (req, res, next) {
   }
   );
 
-
+// ajoute un titre en playlist
 router.post('/ajoutertitre', async function (req, res, next) {
 
  var newTitre = new playlistModel({
@@ -480,7 +484,7 @@ router.post('/ajoutertitre', async function (req, res, next) {
   res.json({ titreSaved })
 });
 
-
+//supprime un titre en playlist
 router.post('/supprimertitre', async function (req, res, next) {
 
   console.log(req.body);
@@ -493,7 +497,7 @@ router.post('/supprimertitre', async function (req, res, next) {
 
 })
 
-// ---------------------------------------------------------------------- winner -----------------------------
+// recupère un tableau d'objet avec titres et nombre de votes reçus trié par nombre de votes
 router.post('/winner', async function (req, res, next) {
 
 console.log(req.body)
@@ -519,8 +523,7 @@ res.json({tri})
 }
 )
 
-
-
+//ajoute le token du guest dans le champ de vote de la collection Playlist, empêche de voter plusieurs fois avec le même token 
 router.post('/voteguest', async function (req, res, next) {
 
   console.log(req.body)

@@ -25,8 +25,11 @@ function Homehost(props) {
   const [songlist, setSonglist] = useState (false)
   const [powerOff, setPowerOff] = useState (false)
 
+
+  //redirection a l'écoulement du timer
   const Completionist = () => <Redirect to="Winner" />;
 
+  //affichage du timer à la complétion vs affichage du timer avant la complétion
   const renderer = ({ minutes, seconds, completed }) => {
     if (completed) {
 
@@ -42,6 +45,8 @@ function Homehost(props) {
     }
   };
 
+
+  //A l'initialisation, affiche le timer et affiche les infos de la soirée en cours (nom, date, heure)
   useEffect(() => {
 
   const findTIMER = async () => {
